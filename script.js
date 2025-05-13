@@ -42,11 +42,19 @@ const questionEl = document.getElementById("question");
 const answersEl = document.getElementById("answers");
 const resultEl = document.getElementById("result");
 
-startBtn.addEventListener("click", () => {
-  introEl.classList.add("hidden");
-  quizEl.classList.remove ("hidden");
-  showquestion();
-});
+
+// Mostra o ecrã atual (introdução, pergunta ou resultado)
+function showScreen() {
+  // Intro
+  if (currentQuestion === -1) {
+    questionEl.textContent = "Confissões a Dois";
+    answersEl.innerHTML = "";
+    nextBtn.textContent = "Começar";
+    nextBtn.style.display = "inline-block";
+    container.classList.remove("hidden");
+    resultEl.classList.add("hidden");
+    return;
+  }
 
 function showPhaseSummary() {
   const phase = phases[currentPhase];
