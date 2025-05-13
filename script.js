@@ -42,10 +42,11 @@ const questionEl = document.getElementById("question");
 const answersEl = document.getElementById("answers");
 const resultEl = document.getElementById("result");
 
-startBtn.onclick = () => {
+startBtn.addEventListener("click", () => {
   introEl.classList.add("hidden");
-  showPhaseSummary();
-};
+  quizEl.classList.remove ("hidden");
+  showquestion();
+});
 
 function showPhaseSummary() {
   const phase = phases[currentPhase];
